@@ -1,0 +1,18 @@
+read color:word(1)
+
+gameloop
+loop 8 read line:word(8)
+read lastMove:word(4)
+read moveCount:int
+loop moveCount read move:word(4)
+write random
+
+INPUT
+color: color of your pieces ("w" or "b")
+line: horizontal row
+lastMove: last move made by the opponent ("null" if it's the first turn)
+moveCount: number of legal moves
+move: a legal move
+
+OUTPUT
+e.g. "d2f4" (move from d2 to f3), "f8g7c5" (transpose from f8 to g7 and crown from c5), "b6" (impasse-remove on b6) , or "random"

@@ -1,0 +1,177 @@
+<div id="statement_back" class="statement_back" style="display:none"></div>
+  <div class="statement-body">
+    <!-- GOAL -->
+    <div class="statement-section statement-goal">
+      <h1>
+        <span class="icon icon-goal">&nbsp;</span>
+        <span>The Game</span>
+      </h1>
+      <div class="statement-goal-content">
+        <p>This is a port of the board game <b>Impasse</b>, invented by <a href="https://marksteeregames.com/">Mark Steere</a>.</p>
+        <p>Full rules of the game are available <a href="https://marksteeregames.com/Impasse_rules.pdf">here</a>.</p>
+        <p>The referee is available <a href="https://github.com/acatai/CG_Impasse">here</a>.</p>
+      </div>
+    </div>
+    <!-- RULES -->
+    <div class="statement-section statement-rules">
+      <h1>
+          <span class="icon icon-rules">&nbsp;</span>
+          <span>Rules</span>
+      </h1>
+        <div class="statement-rules-content">
+            <div style="margin-bottom: 10px">
+                The game is played on a 8x8 board with two players. Each player has 12 checkers. Players take turns, starting with <b>White</b>.
+                <br>
+                Checkers can be placed upon each other making a <b>double</b>. Normal unpaired checkers  are called <b>singles</b>. The first player to remove all of his checkers from the board wins.
+            </div>
+            <div class="blk">
+                <!--<div class="title">Detailed rules</div>-->
+                <div class="text">
+
+                    <h3 style="font-size: 14px;font-weight: 700;padding-top: 15px;color: #838891;padding-bottom: 15px;">Basic Moves</h3>
+                    <div style="margin-bottom: 10px">
+                        There are three types of basic moves in Impasse: the <b>single slide</b>, the <b>double slide</b>, and the <b>transpose</b>. If you have any basic move available you have to perform one and only one of them.
+                    </div>
+                    <div style="margin-bottom: 10px">
+                        <b>Single slide</b>: A single checker can be slid diagonally forward (away from the owner), in a straight line along any number of consecutive, unoccupied squares. Your program has to output the coordinates of the piece he wants to move followed by its destination coordinate (e.g, <const>c1a3</const>).
+                    </div>
+                    <div style="margin-bottom: 10px">
+                        <b>Double slide</b>: A double is a stack of two like-colored checkers. Doubles can be slid diagonally backward in a straight line along any number of consecutive, unoccupied squares. Your program has to output the start and end coordinates of the movement (e.g, <const>g7d4</const>).
+                    </div>
+                    <div style="margin-bottom: 10px">
+                        <b>Transpose</b>: If you have a single adjacent to one of your doubles, and in a nearer row than the double, you can take the top checker (a <b>crown</b>) of that double and transfer it onto the single. Your program has to output the start and end coordinates of the crown (e.g, <const>f8g7</const>).
+                    </div>
+
+                    <h3 style="font-size: 14px;font-weight: 700;padding-top: 15px;color: #838891;padding-bottom: 15px;">Bear Off</h3>
+                    <div style="margin-bottom: 10px">
+                        When you come to have a double in your nearest row (by way of a slide or a transpose), you must immediately <b>bear off</b>, i.e., remove the top checker of that double from the board (which increases your score).
+                    </div>
+                    <div style="margin-bottom: 10px">
+                        This action is performed automatically by the referee. However, it can occur in the middle of your turn and impact further choices during this turn.
+                    </div>
+
+                    <h3 style="font-size: 14px;font-weight: 700;padding-top: 15px;color: #838891;padding-bottom: 15px;">Impasse</h3>
+                    <div style="margin-bottom: 10px">
+                        If you have no basic moves available at the start of your turn you are at an <b>impasse</b>, and you must remove exactly one of your checkers from the board - either a single or the top checker of a double. You cannot make any of the three basic move types during your turn, but may need to perform a <b>crown</b> action after (see below). The winner’s last checker is removed via the impasse rule.
+                    </div>
+                    <div style="margin-bottom: 10px">
+                        When the impasse occurs, your program has to output a single coordinate, pointing the piece (or crown of the piece) you want to remove from the board, (e.g, <const>c5</const>).
+                    </div>
+
+                    <h3 style="font-size: 14px;font-weight: 700;padding-top: 15px;color: #838891;padding-bottom: 15px;">Crown</h3>
+                    <div style="margin-bottom: 10px">
+                        When you have a single in your furthest row (by way of a slide, a transpose, or the impasse), you must immediately <b>crown</b> that single with another one of your on-board singles. This action removes chosen on-board single, and makes the furthest row single a double.
+                    </div>
+                    <div style="margin-bottom: 10px">
+                        If you don’t have another on-board single, nothing happens for now. If you obtain another on-board single during a later turn (via the bear off or impasse), and still have a single in your furthest row, you must immediately perform crowning action.
+                    </div>
+                    <div style="margin-bottom: 10px">
+                        If crowning occurs during your turn, your program has to specify which piece you want to use for the crowning (even if it is the only choice). For this, you have to append to your program's so-far output a single coordinate, on which the piece that should become a crown is, (e.g, <const>c5</const>).
+                    </div>
+                </div>
+  </div>
+
+  <br>
+  <!-- EXPERT RULES -->
+  <div class="statement-section statement-expertrules">
+    <h1>
+      <span class="icon icon-expertrules">&nbsp;</span>
+      <span>Expert Rules</span>
+    </h1>
+    <div class="statement-expert-rules-content">
+      <li>It is possible to have two singles in your furthest row (the second single via the impasse rule). Then you can choose any of them for the crown action.</li>
+    </div>
+  </div>
+  
+  <!-- Victory conditions -->
+  <div class="statement-victory-conditions">
+      <div class="icon victory"></div>
+      <div class="blk">
+          <div class="title">Victory Conditions</div>
+          <div class="text">
+              <ul style="padding-bottom: 0;">
+                  <li>Be the first to remove all your pieces from the board.</li>
+              </ul>
+          </div>
+      </div>
+  </div>
+
+  <!-- Lose conditions -->
+  <div class="statement-lose-conditions">
+      <div class="icon lose"></div>
+      <div class="blk">
+          <div class="title">Loss Conditions</div>
+          <div class="text">
+              <ul style="padding-bottom: 0;">
+                  <li>You fail to remove your pieces before the opponent.</li>
+                  <li>You do not respond in time or output an unrecognized command.</li>
+              </ul>
+          </div>
+      </div>
+  </div>
+
+      <br>
+      <div style="color: #7cc576;
+                    background-color: rgba(124, 197, 118,.1);
+                    padding: 15px;">
+          <p style="text-align:center"><b>Acknowledgments</b></p>
+          <p>This contribution was developed for the dr. Mark Winands course <i><b>Intelligent Search & Games</b></i>, Maastricht University, 2022.</p>
+          <p>Authored by <i><b>Jakub Kowalski</b></i> (<a target="_blank" href="https://www.codingame.com/profile/b528dd3b279d7578674a1129305918e0400484">@aCat</a>).</p>
+          <p>SDK implementation partially based on the source codes by <a target="_blank" href="https://www.codingame.com/profile/dfb886f869fc14dc31fc9191a1b87a608740451">@struct</a> and <a target="_blank" href="https://www.codingame.com/profile/c9ebe76a83b33730956eda0534d6cad86053292">@darkhorse64</a>. </p>
+      </div>
+      <br>
+
+  <!-- PROTOCOL -->
+  <div class="statement-section statement-protocol">
+      <h1>
+      <span class="icon icon-protocol">&nbsp;</span>
+      <span>Game Input/Output</span>
+  </h1>
+
+    <!-- Protocol block -->
+    <div class="blk">
+      <div class="title">Initial input</div>
+      <div class="text">
+          <span class="statement-lineno">One line</span>: <var>color</var></span>: the color of your checkers (<const>w</const>: white, <const>b</const>: black).
+      </div>
+    </div>
+
+    <div class="blk">
+      <div class="title">Input for one game turn</div>
+      <div class="text">
+        <span class="statement-lineno">First <const>8</const> lines</span>: <var>line</var>: a string of characters representing one horizontal row of the grid, top to bottom. (<const>.</const>: empty, <const>w</const>: white single, <const>W</const>: white double,  <const>b</const>: black single, <const>B</const>: black double).
+        <br>
+        <span class="statement-lineno">Next line: <var>lastMove</var></span>: the last move by the opponent ("<const>null</const>" if it's the first turn).
+        </br>
+        <br>
+         <span class="statement-lineno">Next line: <var>moveCount</var></span>: the number of legal moves for this turn.
+        </br>
+        <br>
+          <span class="statement-lineno">Next <var>moveCount</var> lines</span>: <var>move</var>: a string of characters representing a legal move.
+        </br>      
+          </div>
+    </div>
+
+    <!-- Protocol block -->
+    <div class="blk">
+      <div class="title">Output</div>
+      <div class="text">
+         <span class="statement-lineno">A single line</span> containing the coordinates specifying your actions.<br>This may be 1, 2, or 3 coordinates depending on the context, e.g., "<const>d2f4</const>" (move from <const>d2</const> to <const>f3</const>), "<const>f8g7c5</const>" (transpose from <const>f8</const> to <const>g7</const> and crown from <const>c5</const>), "<const>b6</const>" (impasse-remove on <const>b6</const>).<br>
+          <ul>
+              <li>You can display a (short) comment in the viewer by adding a space after the move and writing its content, e.g. "<const>e3d4 message</const>".</li>
+              <li>You can play a random move by outputting "<const>random</const>" instead of a move. This is admittedly only useful for stub code generation.</li>
+          </ul>
+        <br>
+      </div>
+    </div>
+
+    <!-- Protocol block -->
+    <div class="blk">
+      <div class="title">Constraints</div>
+        Response time first turn is ≤
+        <const>1000</const> ms.
+        <br>Response time per turn is ≤
+        <const>100</const> ms.
+      </div>
+  </div>
+</div>
