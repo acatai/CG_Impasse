@@ -17,8 +17,8 @@ public class GameState
   public ArrayList<Integer>[] singles = new ArrayList[]{new ArrayList<Integer>(), new ArrayList<Integer>()};
   public ArrayList<Integer>[] doubles = new ArrayList[]{new ArrayList<Integer>(), new ArrayList<Integer>()};
 
-  public static final int[] occupied = new int[WIDTH*HEIGHT];
-  public static final int[] score = new int[] {0, 0};
+  public final int[] occupied = new int[WIDTH*HEIGHT];
+  public final int[] score = new int[] {0, 0};
 
   public GameState() {}
 
@@ -340,7 +340,7 @@ public class GameState
     }
   }
 
-  public static void increaseScore(int player, double t)
+  public void increaseScore(int player, double t)
   {
     score[player]++;
     viewer.playerScore[player].setText(score[player]+"");

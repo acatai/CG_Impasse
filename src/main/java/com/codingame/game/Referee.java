@@ -116,10 +116,10 @@ public class Referee extends AbstractReferee {
             return;
         }
 
-        if (GameState.score[p]==12)
+        if (mainState.score[p]==12)
         {
-            gameManager.getPlayer(p).setScore(GameState.score[p]);
-            gameManager.getPlayer(p ^ 1).setScore(GameState.score[p ^ 1]);
+            gameManager.getPlayer(p).setScore(mainState.score[p]);
+            gameManager.getPlayer(p ^ 1).setScore(mainState.score[p ^ 1]);
             gameManager.endGame();
         }
         else
@@ -138,7 +138,7 @@ public class Referee extends AbstractReferee {
         {
             String s = "";
             for (int x = 0; x < WIDTH; x++)
-                s += UNIT_CHAR.get(GameState.occupied[GameState.toXY(x, y)]);
+                s += UNIT_CHAR.get(mainState.occupied[GameState.toXY(x, y)]);
             player.sendInputLine(s);
         }
         // Last action

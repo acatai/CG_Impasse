@@ -2,9 +2,9 @@ read color:word(1)
 
 gameloop
 loop 8 read line:word(8)
-read lastMove:word(4)
+read lastMove:word(7)
 read moveCount:int
-loop moveCount read move:word(4)
+loop moveCount read move:word(7)
 write random
 
 INPUT
